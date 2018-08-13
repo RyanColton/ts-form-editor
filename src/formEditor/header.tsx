@@ -17,9 +17,10 @@ const SaveButton = {
 interface IHeader {
 	toggleEdit: ((bool: boolean) => void),
 	editing: boolean,
+	handleSave: ((e: any) => void),
 }
 
-const Header: React.StatelessComponent<IHeader> = ({ toggleEdit, editing }) => (
+const Header: React.StatelessComponent<IHeader> = ({ toggleEdit, editing, handleSave }) => (
 	<HeaderContainer>
 		<Button
 			htmlType="button"
@@ -38,6 +39,7 @@ const Header: React.StatelessComponent<IHeader> = ({ toggleEdit, editing }) => (
 				style={SaveButton}
 				htmlType="button"
 				type="primary"
+				onClick={handleSave}
 			>
 				Save
 			</Button>
