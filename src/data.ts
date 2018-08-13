@@ -1,5 +1,5 @@
 
-interface IDataFormat {
+export interface IDataFormat {
 	title: string,
 	value: string,
 	type: any,

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import FormEditor from './viewWrapper/formEditor';
+import { sampleFormData } from './data';
 import './App.css';
 
 const Container = styled.div`
@@ -8,11 +9,19 @@ const Container = styled.div`
   justify-content: center;
 `
 
-class App extends React.Component {
+class App extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      data: sampleFormData,
+    }
+  }
   public render() {
     return (
       <Container>
-       <FormEditor />
+       <FormEditor
+        data={this.state.data}
+       />
       </Container>
     );
   }

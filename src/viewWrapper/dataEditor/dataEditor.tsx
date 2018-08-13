@@ -1,4 +1,9 @@
 import * as React from 'react';
+import styled from 'styled-components';
+
+const EditContainer = styled.div`
+	width: 80%;
+`
 
 class DataEditor extends React.Component<any, any> {
 	constructor(props: any) {
@@ -7,9 +12,9 @@ class DataEditor extends React.Component<any, any> {
 
 	public render() {
 		return (
-			<div>
+			<EditContainer>
 				Data Editor
-			</div>
+			</EditContainer>
 		)
 	}
 }

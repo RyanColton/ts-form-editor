@@ -10,6 +10,7 @@
   "rules": {
     "ordered-imports" : false,
     "jsx-no-lambda": false,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "no-console": false
   }
 }

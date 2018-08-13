@@ -3,15 +3,18 @@ import styled from 'styled-components';
 import Header from './header';
 import DataEditor from './dataEditor/dataEditor';
 import DataViewer from './dataViewer/dataViewer';
+import { IDataFormat } from '../data';
 
 const Body = styled.div`
-	width: 60%;
+	width: 50%;
 	padding-top: 25px;
 `;
 
+interface IFormProps { data: IDataFormat }
+
 interface IFormState { editing: boolean }
 
-class FormEditor extends React.Component<any, IFormState> {
+class FormEditor extends React.Component<IFormProps, IFormState> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
@@ -26,13 +29,18 @@ class FormEditor extends React.Component<any, IFormState> {
 		return (
 			<Body>
 				<Header
+					{...this.props}
 					toggleEdit={this.toggleEdit}
 					editing={editing}
 				/>
 				{editing ?
-					<DataEditor />
+					<DataEditor
+						{...this.props}
+					/>
 					:
-					<DataViewer />
+					<DataViewer
+						{...this.props}
+					/>
 				}
 			</Body>
 		)

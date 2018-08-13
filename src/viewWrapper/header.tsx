@@ -7,6 +7,13 @@ const HeaderContainer = styled.div`
 	justify-content: flex-end;
 `;
 
+// It would appear that there is a conflict with the compnent library, styled components and typescript
+// I am using inline styles until I have tome to look into this further
+
+const SaveButton = {
+	marginLeft: '10px'
+}
+
 interface IHeader {
 	toggleEdit: ((bool: boolean) => void),
 	editing: boolean,
@@ -15,15 +22,27 @@ interface IHeader {
 const Header: React.StatelessComponent<IHeader> = ({ toggleEdit, editing }) => (
 	<HeaderContainer>
 		<Button
-			htmlType='button'
+			htmlType="button"
 			onClick={() => toggleEdit(!editing)}
 		>
-			{editing ?
+		{editing ?
 			'Cancel'
 			:
 			'Edit'
-			}
+		}
+			
 		</Button>
+		{
+			editing &&
+			<Button
+				style={SaveButton}
+				htmlType="button"
+				type="primary"
+			>
+				Save
+			</Button>
+			
+		}
 	</HeaderContainer>
 );
 
